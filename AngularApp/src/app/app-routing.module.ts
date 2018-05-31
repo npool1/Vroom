@@ -8,12 +8,12 @@ import { LoginComponent} from './login/login.component';
 import { RegisterComponent} from './register/register.component';
 
 const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: '/userdash'},
   { path: 'userdash',component: UserdashComponent },
   { path: 'machinedash',component: MachinedashComponent },
   { path: 'addmachine',component: AddmachineComponent },
   { path: 'login',component: LoginComponent },
   { path: 'register',component: RegisterComponent },
-  { path: '', pathMatch: 'full', redirectTo: '/login' },
 ];
 
 @NgModule({
