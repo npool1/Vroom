@@ -21,6 +21,89 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + "/AngularApp/dist/AngularApp"));
 
 var Schema = mongoose.Schema;
+
+var MaintenanceSchema = new mongoose.Schema({
+    technician: {
+        type: String,
+    },
+    description: {
+        type: String
+    },
+    completedon:{
+        type: Date
+    },
+    duedate: {
+        type: Date
+    },
+    finished: {
+        type: String
+    },
+}, {timestamps: true});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var MachineSchema = new mongoose.Schema({
+    machinename: {
+        type: String,
+        required: [true, "A machine name is required"],
+        minlength: [3, "Machine names must be 3 or more characters"]
+    },
+    make: {
+        type: String
+    },
+    model:{
+        type: String
+
+    },
+    yearpurchased: {
+        type: Date
+    },
+    yearmanufactured: {
+        type: Date
+    },
+    maintenancerecords: [MaintenanceSchema]
+}, {timestamps: true});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var UserSchema = new mongoose.Schema({
     username: {
         type: String,
@@ -31,8 +114,56 @@ var UserSchema = new mongoose.Schema({
         type: String,
         required: [true, "A password is required"],
         minlength: [8, "Passwords must be 8 or more characters"]
-    }
+    },
+    // firstname: {
+    //     type: String,
+    //     required: [true, "A first name is required"],
+    //     minlength: [3, "First name must be 3 or more characters"]
+    // },
+    // lastname: {
+    //     type: String,
+    //     required: [true, "A last name is required"],
+    //     minlength: [3, "Last name must be 3 or more characters"]
+    // },
+    machines: [MachineSchema]
 }, {timestamps: true});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 mongoose.model('User', UserSchema);
 var User = mongoose.model('User');
 
@@ -93,6 +224,409 @@ app.post('/login', function(req, res) {
         }
     });
 });
+//nick
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//carrie
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//joyce
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//dustin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 app.all("*", (req,res,next) => {
     console.log("got hit on * in app.js v2");
