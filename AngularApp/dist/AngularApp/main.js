@@ -41,7 +41,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  addmachine works!\n</p>\n"
+module.exports = "<h4>Add a vehicle to your user dashboard</h4>\n<div>\n    <!-- <form (submit)=\"check()\">\n        Name:\n        <input type=\"text\" [(ngModel)]=\"machine.name\" name=\"name\">\n        <br>\n        Make:\n        <input type=\"text\" [(ngModel)]=\"machine.make\" name=\"make\">\n        <br>\n        Model:\n        <input type=\"text\" [(ngModel)]=\"machine.model\" name=\"model\">\n        <br>\n        Date Purchased:\n        <input type=\"date\" [(ngModel)]=\"machine.purchased\" name=\"yearpurchased\">\n        <br>\n        Manufactured Date:\n        <input type=\"date\" [(ngModel)]=\"machine.manufactured\" name=\"yearmanufactured\">\n        <br>\n        <input id = \"AddMachineButton\" type=\"submit\" value=\"Add Car\">\n        <button id = \"CancelButton\"[routerLink]=\"['']\">Cancel</button>\n\n      </form> -->\n      <button id = \"CancelButton\"[routerLink]=\"['']\">Cancel</button>\n</div>\n"
 
 /***/ }),
 
@@ -117,12 +117,12 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 var routes = [
+    { path: '', pathMatch: 'full', redirectTo: '/userdash' },
     { path: 'userdash', component: _userdash_userdash_component__WEBPACK_IMPORTED_MODULE_2__["UserdashComponent"] },
     { path: 'machinedash', component: _machinedash_machinedash_component__WEBPACK_IMPORTED_MODULE_3__["MachinedashComponent"] },
     { path: 'addmachine', component: _addmachine_addmachine_component__WEBPACK_IMPORTED_MODULE_4__["AddmachineComponent"] },
     { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"] },
     { path: 'register', component: _register_register_component__WEBPACK_IMPORTED_MODULE_6__["RegisterComponent"] },
-    { path: '', pathMatch: 'full', redirectTo: '/login' },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -426,7 +426,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  machinedash works!\n</p>\n"
+module.exports = "<p>\n  machinedash test!\n</p>\n"
 
 /***/ }),
 
@@ -681,7 +681,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/carriethurnau/Desktop/CodingDojo/postDojo/MEAN/vroom/vroom/AngularApp/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/nick/Desktop/Projects/vroom/AngularApp/src/main.ts */"./src/main.ts");
 
 
 /***/ })
