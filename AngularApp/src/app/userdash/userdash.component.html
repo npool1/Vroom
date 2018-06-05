@@ -1,3 +1,25 @@
 <p>
+  Welcome, {{req.session.user}}!
   userdash works!
 </p>
+<h3>Your Machines</h3>
+<table>
+  <th>Machine</th>
+  <th>Model</th>
+  <th>Year</th>
+  <th>Actions</th>
+  <tr>
+    <td>Car 1</td>
+    <td>Prius</td>
+    <td>2016</td>
+    <td><button>Select</button> <button>Delete</button></td>
+  </tr>
+  <tr>
+    <td>Car 2</td>
+    <td>GT-R</td>
+    <td>2018</td>
+    <td><button>Select</button> <button>Delete</button></td>
+  </tr>
+</table>
+<button><a href=''>Add Machine</a></button>
+

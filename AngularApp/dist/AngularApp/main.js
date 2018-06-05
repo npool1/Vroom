@@ -41,7 +41,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  addmachine works!\n</p>\n"
+module.exports = "<p>\r\n  addmachine works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -158,7 +158,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div style=\"text-align:center\">\n  <h1>\n    Welcome to {{ title }}!\n  </h1>\n</div>\n<button [routerLink]=\"['login']\">Login</button>\n<button [routerLink]=\"['register']\">Register</button>\n<button [routerLink]=\"['userdash']\">User Dashboard</button>\n<button [routerLink]=\"['machinedash']\">Machine Dashboard</button>\n<button [routerLink]=\"['addmachine']\">Add Machine</button>\n\n<router-outlet></router-outlet>\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n<div style=\"text-align:center\">\r\n  <h1>\r\n    Welcome to {{ title }}!\r\n  </h1>\r\n</div>\r\n<button [routerLink]=\"['login']\">Login</button>\r\n<button [routerLink]=\"['register']\">Register</button>\r\n<button [routerLink]=\"['userdash']\">User Dashboard</button>\r\n<button [routerLink]=\"['machinedash']\">Machine Dashboard</button>\r\n<button [routerLink]=\"['addmachine']\">Add Machine</button>\r\n\r\n<router-outlet></router-outlet>\r\n"
 
 /***/ }),
 
@@ -330,7 +330,7 @@ var HttpService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".errorText {\n    color: purple;\n}"
+module.exports = ".errorText {\r\n    color: purple;\r\n}"
 
 /***/ }),
 
@@ -341,7 +341,7 @@ module.exports = ".errorText {\n    color: purple;\n}"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h2></h2>\n<p *ngIf=\"error_Present\" class=\"errorText\" >{{ error['message'] }}</p>\n<form (submit)=\"onSubmit()\">\n  <label>Username</label>\n  <input type=\"text\" name=\"user.username\" [(ngModel)]=\"user.username\" />\n  <p></p>\n  <label>Password</label>\n  <input type=\"password\" name=\"user.password\" [(ngModel)]=\"user.password\" />\n  <input type=\"submit\" value=\"Login\" />\n</form>\n\n\n"
+module.exports = "<h2></h2>\r\n<p *ngIf=\"error_Present\" class=\"errorText\" >{{ error['message'] }}</p>\r\n<form (submit)=\"onSubmit()\">\r\n  <label>Username</label>\r\n  <input type=\"text\" name=\"user.username\" [(ngModel)]=\"user.username\" />\r\n  <p></p>\r\n  <label>Password</label>\r\n  <input type=\"password\" name=\"user.password\" [(ngModel)]=\"user.password\" />\r\n  <input type=\"submit\" value=\"Login\" />\r\n</form>\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -426,7 +426,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  machinedash works!\n</p>\n"
+module.exports = "<p>\r\n  machinedash works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -489,7 +489,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h2></h2>\n<p *ngIf=\"error_Present\" class=\"errorText\" >{{ error['message'] }}</p>\n<form (submit)=\"onSubmit()\">\n  <label>Username</label>\n  <input type=\"text\" name=\"user.username\" [(ngModel)]=\"user.username\" />\n  <p></p>\n  <label>Password</label>\n  <input type=\"password\" name=\"user.password\" [(ngModel)]=\"user.password\" />\n  <input type=\"submit\" value=\"Register\" />\n</form>\n"
+module.exports = "<h2></h2>\r\n<p *ngIf=\"error_Present\" class=\"errorText\" >{{ error['message'] }}</p>\r\n<form (submit)=\"onSubmit()\">\r\n  <label>Username</label>\r\n  <input type=\"text\" name=\"user.username\" [(ngModel)]=\"user.username\" />\r\n  <p></p>\r\n  <label>Password</label>\r\n  <input type=\"password\" name=\"user.password\" [(ngModel)]=\"user.password\" />\r\n  <input type=\"submit\" value=\"Register\" />\r\n</form>\r\n"
 
 /***/ }),
 
@@ -576,7 +576,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  userdash works!\n</p>\n"
+module.exports = "<p>\r\n  Welcome, {{req.session.user}}!\r\n  userdash works!\r\n</p>\r\n<h3>Your Machines</h3>\r\n<table>\r\n  <th>Machine</th>\r\n  <th>Model</th>\r\n  <th>Year</th>\r\n  <th>Actions</th>\r\n  <tr>\r\n    <td>Car 1</td>\r\n    <td>Prius</td>\r\n    <td>2016</td>\r\n    <td><button>Select</button> <button>Delete</button></td>\r\n  </tr>\r\n  <tr>\r\n    <td>Car 2</td>\r\n    <td>GT-R</td>\r\n    <td>2018</td>\r\n    <td><button>Select</button> <button>Delete</button></td>\r\n  </tr>\r\n</table>\r\n<button><a href=''>Add Machine</a></button>\r\n\r\n"
 
 /***/ }),
 
@@ -681,7 +681,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/carriethurnau/Desktop/CodingDojo/postDojo/MEAN/vroom/vroom/AngularApp/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\dusty\Desktop\DojoAssignments\Mean\Vroom\vroom\AngularApp\src\main.ts */"./src/main.ts");
 
 
 /***/ })
