@@ -166,6 +166,7 @@ var UserSchema = new mongoose.Schema({
 
 mongoose.model('User', UserSchema);
 var User = mongoose.model('User');
+const machine = mongoose.model('Machine', MachineSchema);
 
 app.post('/register', function(req, res) {
     let newUser = new User({
@@ -225,6 +226,28 @@ app.post('/login', function(req, res) {
     });
 });
 //nick
+app.post('/addmachine', function(request, response){
+    console.log("Here!!!!!")
+    let newMachine = new machine({
+        name: req.body.machinename,
+        make: req.body.make,
+        model: req.body.model,
+        yearpurchased: req.body.yearpurchased,
+        yearmanufactured: req.body.yearmanufactured
+    });
+
+    console.log("This is addMachine" + addMachine);
+    addMachine.save(function(err){
+        if(err){
+            console.log('Unable to put machine in DB');
+            console.log(err);
+            // console.log(err);
+            response.json({message: "error", errors: newMachine.errors});
+        }else{
+            response.json({status: 'everything went okay!'});
+        }
+    });
+});
 
 
 

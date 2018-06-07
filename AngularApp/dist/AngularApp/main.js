@@ -1,3 +1,4 @@
+//test
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["main"],{
 
 /***/ "./src/$$_lazy_route_resource lazy recursive":
@@ -41,7 +42,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h4>Add a vehicle to your user dashboard</h4>\n<div>\n    <!-- <form (submit)=\"check()\">\n        Name:\n        <input type=\"text\" [(ngModel)]=\"machine.name\" name=\"name\">\n        <br>\n        Make:\n        <input type=\"text\" [(ngModel)]=\"machine.make\" name=\"make\">\n        <br>\n        Model:\n        <input type=\"text\" [(ngModel)]=\"machine.model\" name=\"model\">\n        <br>\n        Date Purchased:\n        <input type=\"date\" [(ngModel)]=\"machine.purchased\" name=\"yearpurchased\">\n        <br>\n        Manufactured Date:\n        <input type=\"date\" [(ngModel)]=\"machine.manufactured\" name=\"yearmanufactured\">\n        <br>\n        <input id = \"AddMachineButton\" type=\"submit\" value=\"Add Car\">\n        <button id = \"CancelButton\"[routerLink]=\"['']\">Cancel</button>\n\n      </form> -->\n      <button id = \"CancelButton\"[routerLink]=\"['']\">Cancel</button>\n</div>\n"
+module.exports = "<h4>Add a vehicle to your user dashboard</h4>\n<div>\n    <form (submit)=\"check()\">\n        Name:\n        <input type=\"text\" [(ngModel)]=\"machine.name\" name=\"name\">\n        <br>\n        Make:\n        <input type=\"text\" [(ngModel)]=\"machine.make\" name=\"make\">\n        <br>\n        Model:\n        <input type=\"text\" [(ngModel)]=\"machine.model\" name=\"model\">\n        <br>\n        Date Purchased:\n        <input type=\"date\" [(ngModel)]=\"machine.purchased\" name=\"yearpurchased\">\n        <br>\n        Manufactured Date:\n        <input type=\"date\" [(ngModel)]=\"machine.manufactured\" name=\"yearmanufactured\">\n        <br>\n        <input id = \"AddMachineButton\" type=\"submit\" value=\"Add Car\">\n        <button id = \"CancelButton\"[routerLink]=\"['']\">Cancel</button>\n\n      </form>\n</div>\n"
 
 /***/ }),
 
@@ -56,6 +57,8 @@ module.exports = "<h4>Add a vehicle to your user dashboard</h4>\n<div>\n    <!--
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddmachineComponent", function() { return AddmachineComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../http.service */ "./src/app/http.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -66,10 +69,58 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var AddmachineComponent = /** @class */ (function () {
-    function AddmachineComponent() {
+    function AddmachineComponent(_httpService, _route, _router) {
+        this._httpService = _httpService;
+        this._route = _route;
+        this._router = _router;
+        this.array = [];
+        this.machine = {
+            name: '',
+            make: '',
+            model: '',
+            yearpurchased: '',
+            yearmanufactured: '',
+            maintenancerecords: []
+        };
+        this.maintenancerecord = {
+            technician: '',
+            description: '',
+            completedon: '',
+            duedate: '',
+            finished: ''
+        };
     }
     AddmachineComponent.prototype.ngOnInit = function () {
+    };
+    AddmachineComponent.prototype.check = function () {
+        var _this = this;
+        console.log("in check() addmachine.component:", this.machine);
+        this.machine.maintenancerecords.push(this.maintenancerecord);
+        var observable = this._httpService.addMachine(this.machine);
+        observable.subscribe(function (data) {
+            if (data['errors']) {
+                console.log(data['errors']);
+                // console.log(data['errors']);
+                _this.array = [];
+                // this.array.push(data['errors']['name']['message']);
+                // this.array.push(data['errors']['cuisine']['message']);
+                // console.log(data['errors']['errors']['name'])
+                console.log(data);
+                for (var error in data['errors']) {
+                    _this.array.push(data['errors'][error].message);
+                    console.log("PARSING data[errors] : val : " + error);
+                    console.log(_this.array);
+                }
+            }
+            else {
+                console.log("save response from server: ", data['status']);
+                _this._router.navigate(['']);
+            }
+        });
+        this.machine = { make: '', model: '', yearpurchased: '', yearmanufactured: '', maintenancerecords: [] };
     };
     AddmachineComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -77,7 +128,7 @@ var AddmachineComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./addmachine.component.html */ "./src/app/addmachine/addmachine.component.html"),
             styles: [__webpack_require__(/*! ./addmachine.component.css */ "./src/app/addmachine/addmachine.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_http_service__WEBPACK_IMPORTED_MODULE_1__["HttpService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], AddmachineComponent);
     return AddmachineComponent;
 }());
@@ -309,6 +360,10 @@ var HttpService = /** @class */ (function () {
     HttpService.prototype.loginUser = function (user) {
         console.log("in HttpService loginUser, user: ", user);
         return this._http.post('/login', user);
+    };
+    HttpService.prototype.addMachine = function (machine) {
+        console.log("in HttpService addMachine, machine: ", machine);
+        return this._http.post('/addmachine', machine);
     };
     HttpService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({

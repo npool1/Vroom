@@ -17,4 +17,8 @@ export class HttpService {
     console.log("in HttpService loginUser, user: ", user);
     return this._http.post('/login',user);
   }
+  addMachine(machine){
+    console.log("in HttpService addMachine, machine: ", machine);
+    return this._http.post('/addmachine', machine)
+  }
 }
