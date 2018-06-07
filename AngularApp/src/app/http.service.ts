@@ -21,4 +21,10 @@ export class HttpService {
     console.log("in HttpService addMachine, machine: ", machine);
     return this._http.post('/addmachine', machine)
   }
+
+  getUser(){
+    console.log("about to ask server for the user");
+    return this._http.get('/user');
+  }
+
 }
