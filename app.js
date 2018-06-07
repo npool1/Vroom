@@ -348,10 +348,10 @@ app.post('/addmachine', function(request, response){
 
 //nick's lines end on 349
 //carrie
-
-
-
-
+app.get('/user', function(req, res) {
+    console.log("in server: user: ", req.session.user);
+    res.json({user: req.session.user});
+});
 
 
 
