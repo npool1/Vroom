@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../http.service';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 
 @Component({
   selector: 'app-userdash',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserdashComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private _httpService: HttpService, private _route: ActivatedRoute, private _router: Router) { }
+  user: any;
+  user_in_session: any;
   ngOnInit() {
+    let observable = this._httpService.getUser();
+    observable.subscribe(data =>{
+      this.user_in_session = data['user']
+    })
+    console.log(this.user_in_session, "Here!")
   }
 
 }
