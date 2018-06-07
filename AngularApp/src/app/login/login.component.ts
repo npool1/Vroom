@@ -11,6 +11,7 @@ export class LoginComponent implements OnInit {
   user: any;
   error: any;
   error_Present: any;
+  user_in_session: any;
 
   constructor(private _httpService: HttpService, private _route: ActivatedRoute, private _router: Router) { }
 
@@ -30,8 +31,9 @@ export class LoginComponent implements OnInit {
         console.log("asking the server for the user in session")
         let observable = this._httpService.getUser();
         observable.subscribe(data => {
-          console.log("data from getUser service: ", data);
+          this.user_in_session = data['user'];
           this._router.navigate(['userdash']);
+          // this._router.navigate(['login']);
         })
       }
     })
