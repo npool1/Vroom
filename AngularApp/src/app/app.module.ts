@@ -11,6 +11,7 @@ import { MachinedashComponent } from './machinedash/machinedash.component';
 import { AddmachineComponent } from './addmachine/addmachine.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { AddmaintenanceComponent } from './addmaintenance/addmaintenance.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { RegisterComponent } from './register/register.component';
     MachinedashComponent,
     AddmachineComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AddmaintenanceComponent
   ],
   imports: [
     BrowserModule,

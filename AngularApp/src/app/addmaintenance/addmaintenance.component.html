@@ -1,0 +1,17 @@
+<form (submit)="addMaintenanceForm()">
+  <label>Action:</label>
+  <input type="text" name="action" [(ngModel)]="newMaintenance.action"/><br>
+  <label>Mechanic:</label>
+  <input type="text" name="mechanic" [(ngModel)]="newMaintenance.mechanic"/><br>
+  <label>PDF's:</label>
+  <input type="text" name="pdf" [(ngModel)]="newMaintenance.pdf"/><br>
+  <label>Completed Date:</label>
+  <input type="date" name="compDate" [(ngModel)]="newMaintenance.compDate"/><br>
+  <label>Due Date:</label>
+  <input type="text" name="dueDate" [(ngModel)]="newMaintenance.dueDate"/><br>
+  <label>Completed?</label>
+  <input type="checkbox" name=completed value="Yes" [(ngModel)]="newMaintenance.completed"/>
+  <input type="checkbox" name=completed value="No" [(ngModel)]="newMaintenance.completed"/><br>
+  <input type="submit" value="Add Maintenance" />
+</form>
+ 

@@ -17,7 +17,7 @@ export class AddmachineComponent implements OnInit {
 
   constructor(private _httpService: HttpService, private _route: ActivatedRoute, private _router: Router) {
   this.machine = {
-    name:'',
+    machinename:'',
     make: '',
     model: '',
     yearpurchased: '',
@@ -51,14 +51,14 @@ export class AddmachineComponent implements OnInit {
         for (let error in data['errors']){
           this.array.push(data['errors'][error].message)
           console.log("PARSING data[errors] : val : " + error);
-          console.log(this.array);
+          console.log("line 54"+this.array);
         }
         }else{
         console.log("save response from server: ", data['status']);
       this._router.navigate(['']);
       }
     })
-    this.machine = {make: '', model: '', yearpurchased: '', yearmanufactured: '', maintenancerecords: []}
+    this.machine = {machinename: '', make: '', model: '', yearpurchased: '', yearmanufactured: '', maintenancerecords: []}
   }
 
 }

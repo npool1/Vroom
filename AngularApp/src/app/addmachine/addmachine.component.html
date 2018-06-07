@@ -2,7 +2,7 @@
 <div>
     <form (submit)="check()">
         Name:
-        <input type="text" [(ngModel)]="machine.name" name="name">
+        <input type="text" [(ngModel)]="machine.machinename" name="machinename">
         <br>
         Make:
         <input type="text" [(ngModel)]="machine.make" name="make">
@@ -11,10 +11,10 @@
         <input type="text" [(ngModel)]="machine.model" name="model">
         <br>
         Date Purchased:
-        <input type="date" [(ngModel)]="machine.purchased" name="yearpurchased">
+        <input type="date" [(ngModel)]="machine.yearpurchased" name="yearpurchased">
         <br>
         Manufactured Date:
-        <input type="date" [(ngModel)]="machine.manufactured" name="yearmanufactured">
+        <input type="date" [(ngModel)]="machine.yearmanufactured" name="yearmanufactured">
         <br>
         <input id = "AddMachineButton" type="submit" value="Add Car">
         <button id = "CancelButton"[routerLink]="['']">Cancel</button>
