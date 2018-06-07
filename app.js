@@ -115,16 +115,16 @@ var UserSchema = new mongoose.Schema({
         required: [true, "A password is required"],
         minlength: [8, "Passwords must be 8 or more characters"]
     },
-    // firstname: {
-    //     type: String,
-    //     required: [true, "A first name is required"],
-    //     minlength: [3, "First name must be 3 or more characters"]
-    // },
-    // lastname: {
-    //     type: String,
-    //     required: [true, "A last name is required"],
-    //     minlength: [3, "Last name must be 3 or more characters"]
-    // },
+    firstname: {
+        type: String,
+        required: [true, "A first name is required"],
+        minlength: [3, "First name must be 3 or more characters"]
+    },
+    lastname: {
+        type: String,
+        required: [true, "A last name is required"],
+        minlength: [3, "Last name must be 3 or more characters"]
+    },
     machines: [MachineSchema]
 }, {timestamps: true});
 
@@ -161,9 +161,7 @@ var UserSchema = new mongoose.Schema({
 
 
 
-
-
-
+// user model changes should end on line 166
 mongoose.model('User', UserSchema);
 var User = mongoose.model('User');
 const machine = mongoose.model('Machine', MachineSchema);
@@ -171,7 +169,9 @@ const machine = mongoose.model('Machine', MachineSchema);
 app.post('/register', function(req, res) {
     let newUser = new User({
         username: req.body.username,
-        password: req.body.password
+        password: req.body.password,
+        firstname: req.body.firstname,
+        lastname: req.body.lastname
     });
     console.log("in post: newUser: ", newUser);
     User.findOne({username:req.body.username}, function(err, user) {
@@ -247,6 +247,18 @@ app.post('/addmachine', function(req, res){
             res.json({status: 'everything went okay!'});
         }
     });
+});
+
+app.get('/allmachines', function(req, res){
+    console.log("in server: get machines")
+    machine.find({}, function(err, data){
+        if(err){
+            console.log('we got errors:');
+            console.log(err);
+        } else {
+            response.json({data: data});
+        }
+    })
 });
 
 
