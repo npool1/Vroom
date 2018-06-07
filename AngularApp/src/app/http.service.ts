@@ -27,4 +27,14 @@ export class HttpService {
     return this._http.get('/user');
   }
 
+ 
+
+
+
+  getMachines(){
+    console.log("in service getMachines");
+    return this._http.get("/allmachines");
+  }
 }
+
+
