@@ -26,7 +26,13 @@ export class LoginComponent implements OnInit {
         this.error_Present = true;
         this.error = data['data']['errors']['username'];
       } else {
-        this._router.navigate(['userdash']);
+        // ask the server for the user in session
+        console.log("asking the server for the user in session")
+        let observable = this._httpService.getUser();
+        observable.subscribe(data => {
+          console.log("data from getUser service: ", data);
+          this._router.navigate(['userdash']);
+        })
       }
     })
   }
