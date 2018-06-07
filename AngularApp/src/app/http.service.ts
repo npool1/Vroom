@@ -32,4 +32,14 @@ export class HttpService {
     return this._http.post("/addmaintenance", addMaintenance)
   }
 
+ 
+
+
+
+  getMachines(){
+    console.log("in service getMachines");
+    return this._http.get("/allmachines");
+  }
 }
+
+

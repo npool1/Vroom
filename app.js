@@ -249,6 +249,18 @@ app.post('/addmachine', function(req, res){
     });
 });
 
+app.get('/allmachines', function(req, res){
+    console.log("in server: get machines")
+    machine.find({}, function(err, data){
+        if(err){
+            console.log('we got errors:');
+            console.log(err);
+        } else {
+            response.json({data: data});
+        }
+    })
+});
+
 
 
 
