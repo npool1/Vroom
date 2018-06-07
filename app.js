@@ -226,10 +226,10 @@ app.post('/login', function(req, res) {
     });
 });
 //nick
-app.post('/addmachine', function(request, response){
+app.post('/addmachine', function(req, res){
     console.log("Here!!!!!")
-    let newMachine = new machine({
-        name: req.body.machinename,
+    let addMachine = new machine({
+        machinename: req.body.machinename,
         make: req.body.make,
         model: req.body.model,
         yearpurchased: req.body.yearpurchased,
@@ -242,9 +242,9 @@ app.post('/addmachine', function(request, response){
             console.log('Unable to put machine in DB');
             console.log(err);
             // console.log(err);
-            response.json({message: "error", errors: newMachine.errors});
+            res.json({message: "error", errors: addMachine.errors});
         }else{
-            response.json({status: 'everything went okay!'});
+            res.json({status: 'everything went okay!'});
         }
     });
 });
