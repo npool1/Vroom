@@ -650,7 +650,7 @@ app.post('/addmachine', function(request, response){
 
 
 
-
+// Dustin's lines end on 653
 app.all("*", (req,res,next) => {
     console.log("got hit on * in app.js v2");
     res.sendFile(path.resolve("./AngularApp/dist/AngularApp/index.html"));
