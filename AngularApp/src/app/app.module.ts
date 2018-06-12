@@ -10,6 +10,7 @@ import { UserdashComponent } from './userdash/userdash.component';
 import { MachinedashComponent } from './machinedash/machinedash.component';
 import { AddmachineComponent } from './addmachine/addmachine.component';
 import { AddmaintenanceComponent } from './addmaintenance/addmaintenance.component';
+import { MaintenancedashComponent } from './maintenancedash/maintenancedash.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { AddmaintenanceComponent } from './addmaintenance/addmaintenance.compone
     UserdashComponent,
     MachinedashComponent,
     AddmachineComponent,
-    AddmaintenanceComponent
+    AddmaintenanceComponent,
+    MaintenancedashComponent
   ],
   imports: [
     BrowserModule,

@@ -6,3 +6,12 @@
     color: purple;
     text-decoration: underline;
 }
+#wrapper {
+    border: 1px solid red;
+}
+.component {
+    border: 1px solid blue;
+    display: inline-block;
+    width: auto;
+    vertical-align: top;
+}
