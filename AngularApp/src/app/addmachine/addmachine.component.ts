@@ -55,7 +55,7 @@ export class AddmachineComponent implements OnInit {
         }
         }else{
         console.log("save response from server: ", data['status']);
-      this._router.navigate(['']);
+        this._router.navigate(['/userdash']);
       }
     })
     this.machine = {machinename: '', make: '', model: '', yearpurchased: '', yearmanufactured: '', maintenancerecords: []}

@@ -1,5 +1,16 @@
-<p *ngIf="userloggedin">
-  Welcome, {{user_in_session['username']}}
-  userdash works!
-</p>
+
+<div *ngIf="userloggedin" id="wrapper">
+  <p>Welcome, {{user_in_session['username']}}
+      userdash works!</p>
+
+  <div class="component">
+      <app-machinedash></app-machinedash>
+  </div>
+  
+  <div class="component">
+      <app-maintenancedash></app-maintenancedash>
+  </div>
+</div>
 <p *ngIf="!userloggedin">Please log in or register</p>
+
+
