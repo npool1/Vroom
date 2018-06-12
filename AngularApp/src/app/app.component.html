@@ -1,14 +1,54 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
   </h1>
 </div>
-<button [routerLink]="['login']">Login</button>
-<button [routerLink]="['register']">Register</button>
-<button [routerLink]="['userdash']">User Dashboard</button>
-<button [routerLink]="['machinedash']">Machine Dashboard</button>
-<button [routerLink]="['addmachine']">Add Machine</button>
-<button [routerLink]="['addmaintenance']">Add Maintenance</button>
 
+<div *ngIf="!userloggedin" class="navbar">
+    <p *ngIf="error_Present" class="errorText" >{{ error['message'] }}</p>
+    <form *ngIf="showLoginForm" (submit)="onLoginSubmit()" class="logreg">
+      <label>Username</label>
+      <input type="text" name="user.username" [(ngModel)]="user.username" />
+      <label>Password</label>
+      <input type="password" name="user.password" [(ngModel)]="user.password" />
+      <input type="submit" value="Login" />
+    </form>
+    <form *ngIf="showLoginForm" (submit)="onRegisterRequest()" class="logreg">
+      <input type="submit" value="Register for an account" class="regbutton" />
+    </form>
+    <div *ngIf="showRegisterForm">
+        <h4>Register</h4>
+        <p *ngIf="error_Present" class="errorText" >{{ error['message'] }}</p>
+        <form (submit)="onRegisterSubmit()">
+          <label>Username</label>
+          <input type="text" name="newuser.username" [(ngModel)]="newuser.username" />
+          <p></p>
+          <label>Firstname</label>
+          <input type="text" name="newuser.firstname" [(ngModel)]="newuser.firstname" />
+          <p></p>
+          <label>Lastname</label>
+          <input type="text" name="newuser.lastname" [(ngModel)]="newuser.lastname" />
+          <p></p>
+          <label>Password</label>
+          <input type="password" name="newuser.password" [(ngModel)]="newuser.password" />
+          <p></p>
+          <label>Confirm Password</label>
+          <input type="password" name="pwdconfirm" [(ngModel)]="pwdconfirm" />
+          <p *ngIf="pwderror_Present" class="errorText" >{{ pwderror }}</p>
+          <p></p>
+          <input type="submit" value="Submit" />
+        </form>              
+    </div>
+</div>
+
+<div *ngIf="userloggedin" class="navbar">
+  <p> Hello {{user_in_session['firstname']}}</p>
+  <button [routerLink]="['userdash']">User Dashboard</button>
+  <button [routerLink]="['machinedash']">Machine Dashboard</button>
+  <button [routerLink]="['addmachine']">Add Machine</button>
+  <button [routerLink]="['addmaintenance']">Add Maintenance</button>
+  <form class="logreg" (submit)="onlogoff()">
+    <input type="submit" value="Logoff" />
+  </form>
+</div>
 <router-outlet></router-outlet>

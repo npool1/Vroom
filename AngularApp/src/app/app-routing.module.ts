@@ -9,7 +9,7 @@ import { RegisterComponent} from './register/register.component';
 import { AddmaintenanceComponent } from './addmaintenance/addmaintenance.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/userdash'},
+  { path: '', pathMatch: 'full', redirectTo: '/'},
   { path: 'userdash',component: UserdashComponent },
   { path: 'machinedash',component: MachinedashComponent },
   { path: 'addmachine',component: AddmachineComponent },
