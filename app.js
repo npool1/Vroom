@@ -364,22 +364,10 @@ app.get('/user', function(req, res) {
     console.log("in server: user: ", req.session.user);
     res.json({user: req.session.user});
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+app.get('/logoff', function(req, res) {
+    req.session.user = { username: "", firstname: "", lastname: "", password: ""}
+    res.json({message:"No user logged in", user: req.session.user});
+});
 
 
 
