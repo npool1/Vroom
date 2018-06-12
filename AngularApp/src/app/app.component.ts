@@ -88,7 +88,17 @@ export class AppComponent {
 
   onLogoff(){
     this.userloggedin = false;
+    this.user = { username: "", password: ""};
+    this.newuser = { username: "", firstname: "", lastname: "", password: ""};
+    this.showLoginForm = true;
+    this.showRegisterForm = false;
+    // tell server to remove user from session
+    let observable = this._httpService.logoff();
+    observable.subscribe(data => {
+      this.user_in_session = data['user'];
+      console.log("logoff - from server data: ", data);
+    })
     this._router.navigate(['/']);
-  }
+    }
 
 }
