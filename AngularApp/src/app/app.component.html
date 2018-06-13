@@ -1,54 +1,73 @@
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-</div>
-
-<div *ngIf="!userloggedin" class="navbar">
-    <p *ngIf="error_Present" class="errorText" >{{ error['message'] }}</p>
-    <form *ngIf="showLoginForm" (submit)="onLoginSubmit()" class="logreg">
-      <label>Username</label>
-      <input type="text" name="user.username" [(ngModel)]="user.username" />
-      <label>Password</label>
-      <input type="password" name="user.password" [(ngModel)]="user.password" />
-      <input type="submit" value="Login" />
-    </form>
-    <form *ngIf="showLoginForm" (submit)="onRegisterRequest()" class="logreg">
-      <input type="submit" value="Register for an account" class="regbutton" />
-    </form>
-    <div *ngIf="showRegisterForm">
-        <h4>Register</h4>
-        <p *ngIf="error_Present" class="errorText" >{{ error['message'] }}</p>
-        <form (submit)="onRegisterSubmit()">
-          <label>Username</label>
-          <input type="text" name="newuser.username" [(ngModel)]="newuser.username" />
-          <p></p>
-          <label>Firstname</label>
-          <input type="text" name="newuser.firstname" [(ngModel)]="newuser.firstname" />
-          <p></p>
-          <label>Lastname</label>
-          <input type="text" name="newuser.lastname" [(ngModel)]="newuser.lastname" />
-          <p></p>
-          <label>Password</label>
-          <input type="password" name="newuser.password" [(ngModel)]="newuser.password" />
-          <p></p>
-          <label>Confirm Password</label>
-          <input type="password" name="pwdconfirm" [(ngModel)]="pwdconfirm" />
-          <p *ngIf="pwderror_Present" class="errorText" >{{ pwderror }}</p>
-          <p></p>
-          <input type="submit" value="Submit" />
-        </form>              
+<div id = "wrapper">
+  <div *ngIf="!userloggedin" style="text-align:center">
+      <h1>
+        Welcome to {{ title }}!
+      </h1>
     </div>
+    
+    <div *ngIf="!userloggedin" class="navbar">
+        <p *ngIf="loginErrorPresent" class="errorText" >{{ loginError['message'] }}</p>
+        <form *ngIf="showLoginForm" (submit)="onLoginSubmit()" class="logreg">
+          <label>Username</label>
+          <input type="text" name="user.username" [(ngModel)]="user.username" />
+          <label>Password</label>
+          <input type="password" name="user.password" [(ngModel)]="user.password" />
+          <input type="submit" value="Login" />
+        </form>
+        <form *ngIf="showLoginForm" (submit)="onRegisterRequest()" class="logreg">
+          <input type="submit" value="Register for an account" class="regbutton" />
+        </form>
+        <div *ngIf="showRegisterForm">
+            <h4>Register</h4>
+
+            <!-- display any back end errors -->
+            <p *ngIf="registerErrorPresent" class="errorText" >{{ registerErrors['username']['message'] }}</p>
+            <p *ngIf="registerErrorPresent" class="errorText" >{{ registerErrors['firstname']['message'] }}</p>
+            <p *ngIf="registerErrorPresent" class="errorText" >{{ registerErrors['lastname']['message'] }}</p>
+            <p *ngIf="registerErrorPresent" class="errorText" >{{ registerErrors['password']['message'] }}</p>
+
+            <!-- display any front end errors -->
+            <p *ngIf="usernameErrorPresent" class="errorText" >{{ usernameError }}</p>
+            <p *ngIf="firstnameErrorPresent" class="errorText" >{{ firstnameError }}</p>
+            <p *ngIf="lastnameErrorPresent" class="errorText" >{{ lastnameError }}</p>
+            <p *ngIf="passwordErrorPresent" class="errorText" >{{ passwordError }}</p>
+
+            <form (submit)="onRegisterSubmit()">
+              <label>Username</label>
+              <input type="text" name="newuser.username" [(ngModel)]="newuser.username" />
+              <p></p>
+              <label>Firstname</label>
+              <input type="text" name="newuser.firstname" [(ngModel)]="newuser.firstname" />
+              <p></p>
+              <label>Lastname</label>
+              <input type="text" name="newuser.lastname" [(ngModel)]="newuser.lastname" />
+              <p></p>
+              <label>Password</label>
+              <input type="password" name="newuser.password" [(ngModel)]="newuser.password" />
+              <p></p>
+              <label>Confirm Password</label>
+              <input type="password" name="pwdConfirm" [(ngModel)]="pwdConfirm" />
+              <p *ngIf="pwdErrorPresent" class="errorText" >{{ pwdError }}</p>
+              <p></p>
+              <input type="submit" value="Submit" />
+            </form> 
+            <p></p>
+            <form (submit)="onRegistrationCancel()">
+              <input type="submit" value="Cancel">
+            </form>             
+        </div>
+    </div>
+    
+    <div *ngIf="userloggedin" class="navbar">
+      <!-- <p> Hello {{user_in_session['firstname']}}</p> -->
+      <!-- <button [routerLink]="['userdash']">User Dashboard</button> -->
+      <!-- <button [routerLink]="['machinedash']">Machine Dashboard</button> -->
+      <button [routerLink]="['addmaintenance']">Add Maintenance</button>
+      <form class="logreg" (submit)="onLogoff()">
+        <input type="submit" value="Logoff" />
+      </form>
+    </div>
+
 </div>
 
-<div *ngIf="userloggedin" class="navbar">
-  <p> Hello {{user_in_session['firstname']}}</p>
-  <button [routerLink]="['userdash']">User Dashboard</button>
-  <button [routerLink]="['machinedash']">Machine Dashboard</button>
-  <button [routerLink]="['addmachine']">Add Machine</button>
-  <button [routerLink]="['addmaintenance']">Add Maintenance</button>
-  <form class="logreg" (submit)="onLogoff()">
-    <input type="submit" value="Logoff" />
-  </form>
-</div>
 <router-outlet></router-outlet>
