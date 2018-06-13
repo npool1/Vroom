@@ -1,17 +1,22 @@
 <form (submit)="addMaintenanceForm()">
-  <label>Action:</label>
-  <input type="text" name="action" [(ngModel)]="newMaintenance.action"/><br>
-  <label>Mechanic:</label>
-  <input type="text" name="mechanic" [(ngModel)]="newMaintenance.mechanic"/><br>
-  <label>PDF's:</label>
-  <input type="text" name="pdf" [(ngModel)]="newMaintenance.pdf"/><br>
+  <label>Technician:</label>
+  <input type="text" name="technician" [(ngModel)]="maintenance.technician"/><br>
+  <label>Description:</label>
+  <input type="text" name="description" [(ngModel)]="maintenance.description"/><br>
   <label>Completed Date:</label>
-  <input type="date" name="compDate" [(ngModel)]="newMaintenance.compDate"/><br>
+  <input type="date" name="completedon" [(ngModel)]="maintenance.completedon"/><br>
   <label>Due Date:</label>
-  <input type="text" name="dueDate" [(ngModel)]="newMaintenance.dueDate"/><br>
-  <label>Completed?</label>
-  <input type="checkbox" name=completed value="Yes" [(ngModel)]="newMaintenance.completed"/>
-  <input type="checkbox" name=completed value="No" [(ngModel)]="newMaintenance.completed"/><br>
-  <input type="submit" value="Add Maintenance" />
+  <input type="date" name="duedate" [(ngModel)]="maintenance.duedate"/><br>
+  <label>Finished?</label>
+  <input type='radio' name='finished' value='Yes' [(ngModel)]="maintenance.finished"> Yes
+  <input type='radio' name='finished' value='No' [(ngModel)]="maintenance.finished"> No <br>
+  <!-- <select name="finished" [(ngModel)]="newMaintenance.finished">
+    <option value="yes">Yes</option>
+    <option value="no">No</option> 
+  </select><br> -->
+  <!-- <input type="" name=completed value="Yes" [(ngModel)]="newMaintenance.finished"/>
+  <input type="checkbox" name=completed value="No" [(ngModel)]="newMaintenance.finished"/><br> -->
+  <input id="addmaintenancebutton" type="submit" value="Add Maintenance" />
+  <button id = "CancelButton"[routerLink]="['/userdash']">Cancel</button>
 </form>
  

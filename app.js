@@ -165,7 +165,7 @@ var UserSchema = new mongoose.Schema({
 mongoose.model('User', UserSchema);
 var User = mongoose.model('User');
 const machine = mongoose.model('Machine', MachineSchema);
-
+const maintenance = mongoose.model('Maintenance', MaintenanceSchema);
 app.post('/register', function(req, res) {
     let newUser = new User({
         username: req.body.username,
@@ -450,27 +450,27 @@ app.get('/logoff', function(req, res) {
 // carrie's changes should end on line 450
 //joyce
 
+app.post('/addmaintenance', function(req, res){
+    console.log("Here!!!!!")
+    let addMaintenance = new maintenance({
+        technician: req.body.technician,
+        description: req.body.description,
+        completedon: req.body.completedon,
+        duedate: req.body.duedate,
+        finished: req.body.finished
+    });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    console.log("This is addMaintenance" + addMaintenance);
+    addMaintenance.save(function(err){
+        if(err){
+            console.log('Unable to put maintenance in DB');
+            console.log(err);
+            res.json({message: "error", errors: addMaintenance.errors});
+        }else{
+            res.json({status: 'everything went okay!'});
+        }
+    });
+});
 
 
 

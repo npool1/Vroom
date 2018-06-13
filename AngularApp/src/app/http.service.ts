@@ -27,9 +27,9 @@ export class HttpService {
     return this._http.get('/user');
   }
   
-  addMaintenance(addMaintenance){
-    console.log("in HttpService addMaintenance, maintenance: ", addMaintenance);
-    return this._http.post("/addmaintenance", addMaintenance)
+  addMaintenance(maintenance){
+    console.log("in HttpService addMaintenance, maintenance: ", maintenance);
+    return this._http.post("/addmaintenance", maintenance)
   }
 
  
