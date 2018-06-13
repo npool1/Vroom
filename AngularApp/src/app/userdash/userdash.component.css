@@ -1,0 +1,10 @@
+#wrapper {
+    border: 1px solid purple;
+}
+
+.component {
+    border: 1px solid blue;
+    display: inline-block;
+    width: auto;
+    vertical-align: top;
+}
