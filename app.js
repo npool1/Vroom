@@ -108,7 +108,7 @@ var UserSchema = new mongoose.Schema({
     username: {
         type: String,
         required: [true, "A username is required"],
-        minlength: [3, "Usernames must be 3 or more characters"]
+        minlength: [3, "Username must be 3 or more characters"]
     },
     password: {
         type: String,
@@ -178,10 +178,10 @@ app.post('/register', function(req, res) {
         if (user != null) {
             newUser.validate(function(err) {
                 if (err) {
-                    err["errors"]["username"] = {message: "Try another username"}
+                    err["errors"]["username"] = {message: "Username already in use. Try another username"}
                     res.json({message:"Fail", data:err});
                 } else {
-                    res.json({message:"Fail", data:{"errors":{"username":{"message":"Try another username"}}}});
+                    res.json({message:"Fail", data:{"errors":{"username":{"message":"Username already in use. Try another username"}}}});
                 }
             });
         } else {

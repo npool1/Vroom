@@ -6,7 +6,7 @@
     </div>
     
     <div *ngIf="!userloggedin" class="navbar">
-        <p *ngIf="error_Present" class="errorText" >{{ error['message'] }}</p>
+        <p *ngIf="loginErrorPresent" class="errorText" >{{ loginError['message'] }}</p>
         <form *ngIf="showLoginForm" (submit)="onLoginSubmit()" class="logreg">
           <label>Username</label>
           <input type="text" name="user.username" [(ngModel)]="user.username" />
@@ -19,7 +19,19 @@
         </form>
         <div *ngIf="showRegisterForm">
             <h4>Register</h4>
-            <p *ngIf="error_Present" class="errorText" >{{ error['message'] }}</p>
+
+            <!-- display any back end errors -->
+            <p *ngIf="registerErrorPresent" class="errorText" >{{ registerErrors['username']['message'] }}</p>
+            <p *ngIf="registerErrorPresent" class="errorText" >{{ registerErrors['firstname']['message'] }}</p>
+            <p *ngIf="registerErrorPresent" class="errorText" >{{ registerErrors['lastname']['message'] }}</p>
+            <p *ngIf="registerErrorPresent" class="errorText" >{{ registerErrors['password']['message'] }}</p>
+
+            <!-- display any front end errors -->
+            <p *ngIf="usernameErrorPresent" class="errorText" >{{ usernameError }}</p>
+            <p *ngIf="firstnameErrorPresent" class="errorText" >{{ firstnameError }}</p>
+            <p *ngIf="lastnameErrorPresent" class="errorText" >{{ lastnameError }}</p>
+            <p *ngIf="passwordErrorPresent" class="errorText" >{{ passwordError }}</p>
+
             <form (submit)="onRegisterSubmit()">
               <label>Username</label>
               <input type="text" name="newuser.username" [(ngModel)]="newuser.username" />
@@ -34,11 +46,15 @@
               <input type="password" name="newuser.password" [(ngModel)]="newuser.password" />
               <p></p>
               <label>Confirm Password</label>
-              <input type="password" name="pwdconfirm" [(ngModel)]="pwdconfirm" />
-              <p *ngIf="pwderror_Present" class="errorText" >{{ pwderror }}</p>
+              <input type="password" name="pwdConfirm" [(ngModel)]="pwdConfirm" />
+              <p *ngIf="pwdErrorPresent" class="errorText" >{{ pwdError }}</p>
               <p></p>
               <input type="submit" value="Submit" />
-            </form>              
+            </form> 
+            <p></p>
+            <form (submit)="onRegistrationCancel()">
+              <input type="submit" value="Cancel">
+            </form>             
         </div>
     </div>
     
