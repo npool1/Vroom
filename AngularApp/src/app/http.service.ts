@@ -40,6 +40,11 @@ export class HttpService {
     console.log("in service getMachines");
     return this._http.get("/allmachines");
   }
+
+  logoff(){
+    console.log("in service logoff");
+    return this._http.get("/logoff")
+  }
 }
 
 
