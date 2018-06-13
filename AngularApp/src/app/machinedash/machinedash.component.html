@@ -1,4 +1,18 @@
 <p>placeholder for logged user's associated machines</p>
+<table>
+    <tr>
+      <th>Machine Name</th>
+      <th>Available Actions</th>
+    </tr>
+    <tr>
+    <tr *ngFor = "let machine of machines">
+      <td>{{machine.machinename}}</td>
+      <td>
+        <!-- <button id= "one" [routerLink]= "['', movie._id]">Details</button> -->
+        <button id="three" (click)= "deleteMachine(machine._id)">Delete</button>
+      </td>
+    </tr>
+</table>
 <p>
     <button [routerLink]="['addmachine']">Add Machine</button>
 </p>

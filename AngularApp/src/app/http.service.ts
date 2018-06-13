@@ -31,6 +31,10 @@ export class HttpService {
     console.log("in HttpService addMaintenance, maintenance: ", addMaintenance);
     return this._http.post("/addmaintenance", addMaintenance)
   }
+  deleteMachine(id){
+    console.log("in service deleteMachine");
+   return this._http.delete("/machine/" + id);
+  }
 
  
 

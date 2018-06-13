@@ -256,10 +256,21 @@ app.get('/allmachines', function(req, res){
             console.log('we got errors:');
             console.log(err);
         } else {
-            response.json({data: data});
+            res.json({data: data});
         }
     })
 });
+
+app.delete('/machine/:id', function(req, res){
+    var id = mongoose.Types.ObjectId(req.params.id);
+    machine.remove({_id: id}, function(err){
+        if(err){
+            console.log(err);
+            res.json({status: 'not gucci'});
+        }
+    });
+    res.json({status: 'gucci'});
+})
 
 
 
